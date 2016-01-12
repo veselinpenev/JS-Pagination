@@ -1,11 +1,11 @@
 # JS Pagination
 
 Dependent on:
- - Jquery
+ - JQuery
  - Bootstrap
 
 
-Using Jquery selectors. ('.class')
+Using JQuery selectors. ('.class')
 
 Parameters:
 
