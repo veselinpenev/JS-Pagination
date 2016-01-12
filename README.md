@@ -5,9 +5,9 @@ Dependent on:
  - Bootstrap
 
 
-Using JQuery selectors. ('.class')
+**Using Jquery selectors. ('.class')**
 
-Parameters:
+##### Parameters:
 
  - selector - elements that hide or show. ('table tbody tr') or ('div') ...
  - paginationDiv - place where navigation is located. < 1 2 3 >
