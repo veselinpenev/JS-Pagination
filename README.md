@@ -12,7 +12,7 @@
  - selector - elements that hide or show. ('table tbody tr') or ('div') ...
  - paginationDiv - place where navigation is located. ('#paginationDiv')
  - perPage - elements per page. **Default is 15.**
- - withNumber - if is true navigation include numbers < 1 2 3 >. If is false navigation without numbers < > . **Default is false.**
+ - withNumber - if is **true** navigation include numbers < 1 2 3 >. If is **false** navigation without numbers < > . **Default is false.**
     
 ### Example
     
