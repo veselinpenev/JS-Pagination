@@ -92,10 +92,13 @@ var Pagination = function (selectorId, paginationId, perPage){
         if(page < 1){
             page = 1;
         }
-        if(page > max_page){
+        if(page > max_page && max_page > 0){
             page = max_page;
         }
+        if(max_page == 0){
+            page = 1;
+        }
+        console.log(page);
         changePage();
     });
 };
-
