@@ -82,8 +82,6 @@ var Pagination = function (selectorId, paginationId, perPage){
 
             
     function changePage(){
-        console.log(1);
-        console.log(_this.selector);
         renderPagination();
         $(_this.selector).hide();
         var currenrPage = page-1;
