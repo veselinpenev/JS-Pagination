@@ -10,7 +10,8 @@ var Pagination = function (selectorId, paginationId, perPage){
     var page = 1;
     var all = 0;
     var max_page = 0;
-
+    var classUse = makeClass();
+    
     this.render = function () {
         all = $(_this.selector).size();
         max_page = Math.ceil(all/_this.perPage);
@@ -28,7 +29,7 @@ var Pagination = function (selectorId, paginationId, perPage){
         var paginationHtml = '<strong>' + from + '-' + to + '/' + all + ' </strong>';
         
         if(_this.withNumber){
-            paginationHtml += '<div class="btn-group"><a class="changePage btn btn-default btn-sm';
+            paginationHtml += '<div class="btn-group"><a class="' + classUse + ' btn btn-default btn-sm';
             if(page == 1) {
                 paginationHtml +=' disabled '
             }
@@ -58,7 +59,7 @@ var Pagination = function (selectorId, paginationId, perPage){
             page_from = (page_from < 1) ? 1 : page_from;
             page_to = (page_to > max_page) ? max_page : page_to;
             for(x = page_from; x<=page_to; x++){
-                paginationHtml += '<a class="changePage btn btn-default btn-sm ';
+                paginationHtml += '<a class="' + classUse + ' btn btn-default btn-sm ';
                 if(x == page){
                     paginationHtml += ' active" data-page="' + x + '">' + x + '</a>';
                 }
@@ -66,7 +67,7 @@ var Pagination = function (selectorId, paginationId, perPage){
                     paginationHtml +='" data-page="' + x + '">' + x + '</a>';
                 }
             }
-            paginationHtml += '<a class="changePage btn btn-default btn-sm ';
+            paginationHtml += '<a class="' + classUse + ' btn btn-default btn-sm ';
             if(page == max_page && max_page != 0){
                 paginationHtml += ' disabled ';
             }
@@ -74,20 +75,22 @@ var Pagination = function (selectorId, paginationId, perPage){
             paginationHtml += '</div>';
         }
         else{
-            paginationHtml +='<div class="btn-group"><a class="changePage btn btn-default btn-sm" data-page="' + (page-1) +'" title="Previous"><i class="fa fa-chevron-left"></i></a><a class="changePage btn btn-default btn-sm" data-page="' + (page+1) + '"><i class="fa fa-chevron-right"></i></a></div>';
+            paginationHtml +='<div class="btn-group"><a class="' + classUse + ' btn btn-default btn-sm" data-page="' + (page-1) +'" title="Previous"><i class="fa fa-chevron-left"></i></a><a class="' + classUse + ' btn btn-default btn-sm" data-page="' + (page+1) + '"><i class="fa fa-chevron-right"></i></a></div>';
         }
         $(_this.pagination).html(paginationHtml);
     }
 
             
     function changePage(){
+        console.log(1);
+        console.log(_this.selector);
         renderPagination();
         $(_this.selector).hide();
         var currenrPage = page-1;
         $(_this.selector).slice(currenrPage*_this.perPage, currenrPage*_this.perPage + _this.perPage).show();
     }
 
-    $(document).on( 'click', '.changePage', function () {
+    $(document).on( 'click', '.' + classUse, function () {
         page = parseInt($(this).attr('data-page'));
         if(page < 1){
             page = 1;
@@ -98,7 +101,18 @@ var Pagination = function (selectorId, paginationId, perPage){
         if(max_page == 0){
             page = 1;
         }
-        console.log(page);
         changePage();
     });
+    
+    function makeClass()
+    {
+        var text = "";
+        var possible = "abcdefghijklmnopqrstuvwxyz";
+
+        for( var i=0; i < 10; i++ )
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
 };
+
