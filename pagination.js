@@ -33,7 +33,7 @@ var Pagination = function (selectorId, paginationId, perPage){
             if(page == 1) {
                 paginationHtml +=' disabled '
             }
-            paginationHtml += '" data-page="' + (page-1) +'" title="Previous"><i class="fa fa-chevron-left"></i></a>';
+            paginationHtml += '" data-page="' + (page-1) +'" title="Previous"><span class="glyphicon glyphicon-chevron-left"></span></a>';
             var page_from = 1;
             var page_to = max_page;
             var add_page = 0;
@@ -71,11 +71,11 @@ var Pagination = function (selectorId, paginationId, perPage){
             if(page == max_page && max_page != 0){
                 paginationHtml += ' disabled ';
             }
-            paginationHtml += '" data-page="' + (page+1) + '"><i class="fa fa-chevron-right"></i></a>';
+            paginationHtml += '" data-page="' + (page+1) + '"><span class="glyphicon glyphicon-chevron-right"></span></a>';
             paginationHtml += '</div>';
         }
         else{
-            paginationHtml +='<div class="btn-group"><a class="' + classUse + ' btn btn-default btn-sm" data-page="' + (page-1) +'" title="Previous"><i class="fa fa-chevron-left"></i></a><a class="' + classUse + ' btn btn-default btn-sm" data-page="' + (page+1) + '"><i class="fa fa-chevron-right"></i></a></div>';
+            paginationHtml +='<div class="btn-group"><a class="' + classUse + ' btn btn-default btn-sm" data-page="' + (page-1) +'" title="Previous"><span class="glyphicon glyphicon-chevron-left"></span></a><a class="' + classUse + ' btn btn-default btn-sm" data-page="' + (page+1) + '"><span class="glyphicon glyphicon-chevron-right"></span></a></div>';
         }
         $(_this.pagination).html(paginationHtml);
     }
