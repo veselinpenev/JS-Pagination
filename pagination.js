@@ -17,6 +17,11 @@ var Pagination = function (selectorId, paginationId, perPage){
         max_page = Math.ceil(all/_this.perPage);
         changePage();
     };
+	
+	this.goToPage = function (p){
+        page = p;
+        changePage();
+    }
     
     function renderPagination(){
         var currentPage = page-1;
